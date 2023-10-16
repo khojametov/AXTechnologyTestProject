@@ -34,3 +34,7 @@
 ### Run tests
 
 ```pytest``` or ```pytest -vv```
+
+### Documentation
+
+```http://0.0.0.0:8000/redoc```
