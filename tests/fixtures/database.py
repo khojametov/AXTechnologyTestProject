@@ -12,7 +12,7 @@ from tests.session import TestSession
 @pytest.fixture(scope="session")
 def db_engine():
     engine = create_engine(
-        settings.DATABASE_URL,
+        "sqlite:///./test_db.sqlite",
         echo=settings.SQLALCHEMY_ECHO,
         connect_args={"check_same_thread": False},
     )
@@ -44,7 +44,6 @@ def session(connection: Connection):
     transaction = connection.begin()
 
     session = TestSession(bind=connection)
-    session.begin_nested()
 
     try:
         yield session
